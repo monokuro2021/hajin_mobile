@@ -1,0 +1,147 @@
+h1 {
+    position: fixed;  /* 画面に固定 */
+    left: 2%;       /* 左端からの距離 */
+    bottom: 3%;     /* 下端からの距離 */
+    font-size: 3.8vw;  /* 調整 */
+    font-weight: bold;
+    font-family: arial black, sans-serif;
+    color: black;   /* 深みのある赤 */
+    text-shadow: 0.3vw 0.3vw 0.5vw rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.4vw;
+    margin: 0;
+}
+
+body {
+    text-align: center;
+    font-size: 2.2vw;
+    font-family: arial black, sans-serif;
+    color: black;  /* テキストの色を白に（必要に応じて変更可能） */
+    margin: 0;
+    padding: 0;
+    background: white;
+    user-select: none; /* テキスト選択を無効化 */
+    -webkit-user-select: none; /* Safari対応 */
+    -moz-user-select: none; /* Firefox対応 */
+    -ms-user-select: none; /* IE/Edge対応 */
+
+}
+/* ボードとラベルを囲むコンテナ */
+.board-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ボード自体の配置 */
+.board {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(9, 5vw);
+    grid-template-rows: repeat(9, 5vw);
+    gap: 0.1vw;
+    width: 45vw;
+    height: 45vw;
+
+
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    border: 0.1vw solid white;  /* 少し落ち着いた枠線 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(160deg, #DBDBDB, #C9C9C9);
+    box-shadow: inset 0.1vw 0.1vw 0.2vw rgba(255, 255, 255, 0.6),
+                inset -0.1vw -0.1vw 0.2vw rgba(0, 0, 0, 0.1);
+}
+
+.stone {
+    display: inline-block;
+    border-radius: 50%;
+    width: 72.5%;
+    height: 72.5%;
+}
+
+/* 赤い駒のスタイル */
+.red-stone {
+    background: radial-gradient(circle at 30% 30%, #FF7777, #DD2222);
+    box-shadow: inset -0.2vw -0.2vw 0.5vw rgba(0, 0, 0, 0.4),
+                inset 0.2vw 0.2vw 0.5vw rgba(255, 255, 255, 0.5),
+                0 0.3vw 0.6vw rgba(0, 0, 0, 0.2);
+}
+
+/* 青い駒のスタイル */
+.blue-stone {
+    background: radial-gradient(circle at 30% 30%, #84B2FF, #2255DD);
+    box-shadow: inset -0.2vw -0.2vw 0.5vw rgba(0, 0, 0, 0.4),
+                inset 0.2vw 0.2vw 0.5vw rgba(255, 255, 255, 0.5),
+                0 0.3vw 0.6vw rgba(0, 0, 0, 0.2);
+}
+
+/* コントロールボタンのスタイル */
+.controls {
+    position: fixed;
+    bottom: 3%;
+    right: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    z-index: 100;
+}
+
+.controls button {
+    padding: 1vh 2.2vw;
+    font-size: 1.8vw;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 0.4vw;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#turn {
+    font-size: 1.5vw;
+    margin-right: 2vw;
+}
+
+
+.red-circle {
+    background-color: red;
+}
+
+.blue-circle {
+    background-color: blue;
+}
+
+#game-result {
+    position: fixed;
+    left: 50%;
+    top: 50%; /* 画面の中央 */
+    transform: translate(-50%, -50%); /* 完全に中央に配置 */
+    background: rgba(255, 255, 255, 0.8); /* さらに透明度を下げる */
+    padding: 1.5vh 2.5vw;
+    border-radius: 0.8vw;
+    box-shadow: 0.3vw 0.3vw 1.2vw rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-size: 4vw; /* 少し小さく */
+    color: black;
+    width: 35vw; /* 広くする */
+    line-height: 1.6; /* 行間を少し広げる */
+}
+
+#result-text {
+    font-size: 2.8vw;
+    font-weight: bold;
+    color: #333;
+    white-space: pre-line; /* HTMLの改行を反映 */
+    line-height: 1.4; /* 行間を少し広げる */
+}
